@@ -1,7 +1,20 @@
-build:
-	c++ -c ./lib/Strategy/src/Strategy.cpp 
-	c++ -c ./lib/Strategy/src/ConcreteStrategy.cpp 
-	c++ -c ./lib/Strategy/src/Client.cpp 
-	c++ -c ./src/main.cpp
+build: Strategy.o ConcreteStrategy.o Client.o Main.o
 	c++ Strategy.o ConcreteStrategy.o Client.o Main.o -o StrategyPattern
-	rm Strategy.o ConcreteStrategy.o Client.o Main.o
+	
+Strategy.o: ./lib/Strategy/src/Strategy.cpp ./lib/Strategy/include/Strategy/Strategy.hpp
+	c++ -c ./lib/Strategy/src/Strategy.cpp 
+	
+ConcreteStrategy.o: ./lib/Strategy/src/ConcreteStrategy.cpp ./lib/Strategy/include/Strategy/ConcreteStrategy.hpp
+	c++ -c ./lib/Strategy/src/ConcreteStrategy.cpp 
+	
+Client.o: ./lib/Strategy/src/Client.cpp ./lib/Strategy/include/Strategy/Client.hpp
+	c++ -c ./lib/Strategy/src/Client.cpp 
+	
+Main.o: ./src/main.cpp
+	c++ -c ./src/main.cpp
+	
+clean:
+	rm -rf *.o StrategyPattern
+	
+run:
+	./StrategyPattern
