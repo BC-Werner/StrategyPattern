@@ -1,11 +1,11 @@
-build: Strategy.o ConcreteStrategy.o ConcreteStrategyB.o Client.o Main.o
-	c++ Strategy.o ConcreteStrategy.o ConcreteStrategyB.o Client.o Main.o -o StrategyPattern
+build: Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o
+	c++ Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o -o StrategyPattern
 	
 Strategy.o: ./lib/Strategy/src/Strategy.cpp ./lib/Strategy/include/Strategy/Strategy.hpp
 	c++ -c ./lib/Strategy/src/Strategy.cpp 
 	
-ConcreteStrategy.o: ./lib/Strategy/src/ConcreteStrategy.cpp ./lib/Strategy/include/Strategy/ConcreteStrategy.hpp
-	c++ -c ./lib/Strategy/src/ConcreteStrategy.cpp 
+ConcreteStrategyA.o: ./lib/Strategy/src/ConcreteStrategyA.cpp ./lib/Strategy/include/Strategy/ConcreteStrategyA.hpp
+	c++ -c ./lib/Strategy/src/ConcreteStrategyA.cpp 
 
 ConcreteStrategyB.o: ./lib/Strategy/src/ConcreteStrategyB.cpp ./lib/Strategy/include/Strategy/ConcreteStrategyB.hpp
 	c++ -c ./lib/Strategy/src/ConcreteStrategyB.cpp 

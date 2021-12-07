@@ -2,12 +2,12 @@
 #include "Strategy.hpp"
 
 
-class ConcreteStrategy : public Strategy
+class ConcreteStrategyA : public Strategy
 {
 private:
 public:
-    ConcreteStrategy();
-    ~ConcreteStrategy();
+    ConcreteStrategyA();
+    ~ConcreteStrategyA();
 
     void execute() const;
 };

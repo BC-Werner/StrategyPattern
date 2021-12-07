@@ -5,5 +5,5 @@ ConcreteStrategyB::ConcreteStrategyB() {};
 ConcreteStrategyB::~ConcreteStrategyB() {};
 
 void ConcreteStrategyB::execute() const {
-    std::cout << "Executing ConcreteStrategy B!!" << std::endl;
+    std::cout << "Executing Concrete Strategy B!!" << std::endl;
 }

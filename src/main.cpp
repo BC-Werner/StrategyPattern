@@ -9,7 +9,7 @@
 
 #include "../lib/Strategy/include/Strategy/Client.hpp"
  // #include "../lib/Strategy/include/Strategy/Strategy.hpp"
-#include "../lib/Strategy/include/Strategy/ConcreteStrategy.hpp"
+#include "../lib/Strategy/include/Strategy/ConcreteStrategyA.hpp"
 #include "../lib/Strategy/include/Strategy/ConcreteStrategyB.hpp"
 
 
@@ -17,7 +17,7 @@ int main()
 {
 
     // Create the client with a concrete strategy and execute the strategy
-    Client* client = new Client(new ConcreteStrategy);
+    Client* client = new Client(new ConcreteStrategyA);
     client->executeStrategy();
     client->setStrategy(new ConcreteStrategyB);
     client->executeStrategy();
