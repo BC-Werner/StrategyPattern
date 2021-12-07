@@ -1,0 +1,6 @@
+build:
+	c++ -c ./lib/Strategy/src/ConcreteStrategy.cpp 
+	c++ -c ./lib/Strategy/src/Client.cpp 
+	c++ -c ./src/main.cpp
+	c++ ConcreteStrategy.o Client.o Main.o -o StrategyPattern
+	rm ConcreteStrategy.o Client.o Main.o
