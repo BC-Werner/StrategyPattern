@@ -3,7 +3,6 @@
 
 
 ConcreteStrategyA::ConcreteStrategyA() {};
-
 ConcreteStrategyA::~ConcreteStrategyA() {};
 
 void ConcreteStrategyA::execute() const {
