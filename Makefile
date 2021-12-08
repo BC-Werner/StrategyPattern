@@ -3,10 +3,6 @@ LIBSRC = ./lib/Strategy/src/
 CC = c++
 INCLUDES = -I$(LIBINC)
 
-# $(CC) -c $(LIBSRC)Strategy.cpp -I$(LIBINC)
-# $(CC) -c $(LIBSRC)ConcreteStrategyB.cpp -I$(LIBINC)
-# $(CC) -c $(LIBSRC)Client.cpp -I$(LIBINC)
-# $(CC) -c ./src/main.cpp -I$(LIBINC)
 
 build: Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o
 	$(CC) Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o -o StrategyPattern
