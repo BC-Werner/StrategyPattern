@@ -1,20 +1,30 @@
-build: Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o
-	c++ Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o -o StrategyPattern
-	
-Strategy.o: ./lib/Strategy/src/Strategy.cpp ./lib/Strategy/include/Strategy/Strategy.hpp
-	c++ -c ./lib/Strategy/src/Strategy.cpp 
-	
-ConcreteStrategyA.o: ./lib/Strategy/src/ConcreteStrategyA.cpp ./lib/Strategy/include/Strategy/ConcreteStrategyA.hpp
-	c++ -c ./lib/Strategy/src/ConcreteStrategyA.cpp 
+LIBINC = ./lib/Strategy/include/Strategy/
+LIBSRC = ./lib/Strategy/src/
+CC = c++
+INCLUDES = -I$(LIBINC)
 
-ConcreteStrategyB.o: ./lib/Strategy/src/ConcreteStrategyB.cpp ./lib/Strategy/include/Strategy/ConcreteStrategyB.hpp
-	c++ -c ./lib/Strategy/src/ConcreteStrategyB.cpp 
+# $(CC) -c $(LIBSRC)Strategy.cpp -I$(LIBINC)
+# $(CC) -c $(LIBSRC)ConcreteStrategyB.cpp -I$(LIBINC)
+# $(CC) -c $(LIBSRC)Client.cpp -I$(LIBINC)
+# $(CC) -c ./src/main.cpp -I$(LIBINC)
+
+build: Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o
+	$(CC) Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o -o StrategyPattern
 	
-Client.o: ./lib/Strategy/src/Client.cpp ./lib/Strategy/include/Strategy/Client.hpp
-	c++ -c ./lib/Strategy/src/Client.cpp 
+Strategy.o: $(LIBSRC)Strategy.cpp $(LIBINC)Strategy.hpp
+	$(CC) -c $< $(INCLUDES)
+
+ConcreteStrategyA.o: $(LIBSRC)ConcreteStrategyA.cpp $(LIBINC)ConcreteStrategyA.hpp
+	$(CC) -c $< $(INCLUDES)
+
+ConcreteStrategyB.o: $(LIBSRC)ConcreteStrategyB.cpp $(LIBINC)ConcreteStrategyB.hpp
+	$(CC) -c $< $(INCLUDES)
+	
+Client.o: $(LIBSRC)Client.cpp $(LIBINC)Client.hpp
+	$(CC) -c $< $(INCLUDES)
 	
 Main.o: ./src/main.cpp
-	c++ -c ./src/main.cpp
+	$(CC) -c $< $(INCLUDES)
 	
 clean:
 	rm -rf *.o StrategyPattern
