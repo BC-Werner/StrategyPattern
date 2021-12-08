@@ -12,7 +12,7 @@ OBJECTS = Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o
 OBJS = $(foreach obj, $(OBJECTS), $(BUILD_OBJ)$(obj))
 
 
-$(PROGRAM_NAME): $(OBJS) Main.o
+$(PROGRAM_NAME): $(BUILD_OBJ) $(OBJS) Main.o
 	$(CC) $(OBJS) $(BUILD_OBJ)Main.o -o $(BUILD_DIR)$@
 
 Main.o: ./src/main.cpp
@@ -20,6 +20,9 @@ Main.o: ./src/main.cpp
 
 $(BUILD_OBJ)%.o: $(LIBSRC)%.cpp
 	$(CC) $(INCLUDES) -c $< -o $@
+	
+$(BUILD_OBJ):
+	mkdir -p $@
 	
 clean:
 # rm -rf $(BUILD_OBJ)*.o $(BUILD_DIR)StrategyPattern
