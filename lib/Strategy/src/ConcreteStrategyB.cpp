@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/Strategy/ConcreteStrategyB.hpp"
+#include <ConcreteStrategyB.hpp>
 
 ConcreteStrategyB::ConcreteStrategyB() {};
 ConcreteStrategyB::~ConcreteStrategyB() {};

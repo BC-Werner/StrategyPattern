@@ -1,4 +1,4 @@
-#include "../include/Strategy/Client.hpp"
+#include <Client.hpp>
 
 
 Client::Client(Strategy* strategy)

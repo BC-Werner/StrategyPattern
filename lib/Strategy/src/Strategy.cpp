@@ -1,3 +1,3 @@
-#include "../include/Strategy/Strategy.hpp"
+#include <Strategy.hpp>
 
 Strategy::~Strategy() = default;

@@ -1,4 +1,4 @@
-#include "../include/Strategy/ConcreteStrategyA.hpp"
+#include <ConcreteStrategyA.hpp>
 #include <iostream>
 
 

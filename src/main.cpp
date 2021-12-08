@@ -7,11 +7,9 @@
 
 #include <iostream>
 
-#include "../lib/Strategy/include/Strategy/Client.hpp"
- // #include "../lib/Strategy/include/Strategy/Strategy.hpp"
-#include "../lib/Strategy/include/Strategy/ConcreteStrategyA.hpp"
-#include "../lib/Strategy/include/Strategy/ConcreteStrategyB.hpp"
-
+#include <Client.hpp>
+#include <ConcreteStrategyA.hpp>
+#include <ConcreteStrategyB.hpp>
 
 int main()
 {

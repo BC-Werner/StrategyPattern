@@ -1,5 +1,5 @@
 #pragma once
-#include "Strategy.hpp"
+#include <Strategy.hpp>
 
 class Client
 {
