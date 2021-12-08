@@ -1,29 +1,30 @@
+PROGRAM_NAME = StrategyPattern
+CC = c++
+
 LIBINC = ./lib/Strategy/include/Strategy/
 LIBSRC = ./lib/Strategy/src/
-CC = c++
+
+BUILD_DIR = builds/
+BUILD_OBJ = $(BUILD_DIR)obj/
 INCLUDES = -I$(LIBINC)
 
+OBJECTS = Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o 
+OBJS = $(foreach obj, $(OBJECTS), $(BUILD_OBJ)$(obj))
 
-build: Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o
-	$(CC) Strategy.o ConcreteStrategyA.o ConcreteStrategyB.o Client.o Main.o -o StrategyPattern
-	
-Strategy.o: $(LIBSRC)Strategy.cpp $(LIBINC)Strategy.hpp
-	$(CC) -c $< $(INCLUDES)
 
-ConcreteStrategyA.o: $(LIBSRC)ConcreteStrategyA.cpp $(LIBINC)ConcreteStrategyA.hpp
-	$(CC) -c $< $(INCLUDES)
+$(PROGRAM_NAME): $(OBJS) Main.o
+	$(CC) $(OBJS) $(BUILD_OBJ)Main.o -o $(BUILD_DIR)$@
 
-ConcreteStrategyB.o: $(LIBSRC)ConcreteStrategyB.cpp $(LIBINC)ConcreteStrategyB.hpp
-	$(CC) -c $< $(INCLUDES)
-	
-Client.o: $(LIBSRC)Client.cpp $(LIBINC)Client.hpp
-	$(CC) -c $< $(INCLUDES)
-	
 Main.o: ./src/main.cpp
-	$(CC) -c $< $(INCLUDES)
+	$(CC) $(INCLUDES) -c $< -o $(BUILD_OBJ)$@
+
+$(BUILD_OBJ)%.o: $(LIBSRC)%.cpp
+	$(CC) $(INCLUDES) -c $< -o $@
 	
 clean:
-	rm -rf *.o StrategyPattern
-	
+# rm -rf $(BUILD_OBJ)*.o $(BUILD_DIR)StrategyPattern
+	@find . -type f -name '*.o' -print -delete
+	@find . -type f -name 'StrategyPattern' -print -delete
+
 run:
-	./StrategyPattern
+	@$(BUILD_DIR)$(PROGRAM_NAME);
